@@ -105,32 +105,109 @@
             transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
         }
 
-        /* Star rating styling */
+        /* Enhanced Star rating styling */
         .rating {
             display: flex;
             justify-content: center;
             margin-top: 20px;
+            position: relative;
         }
 
         .rating button {
             background-color: transparent;
             border: none;
             cursor: pointer;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: #ff7e67;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
+            padding: 0 5px;
         }
 
         .rating button:hover,
         .rating button.active {
             color: #f65050;
+            transform: scale(1.2);
         }
 
+        .rating button.active {
+            color: #ff3b3b;
+        }
+
+        .rating button:focus {
+            outline: none;
+        }
+
+        .rating-feedback {
+            font-size: 1.5rem;
+            text-align: center;
+            margin-top: 10px;
+            color: #ff7e67;
+            font-weight: bold;
+        }
+
+        /* Media Query for tablets and smaller screens */
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px auto;
+                padding: 15px;
+            }
+
+            h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            h2 {
+                font-size: 1.5rem;
+            }
+
+            p, ul, ol {
+                font-size: 1rem;
+            }
+
+            .rating button {
+                font-size: 2rem;
+            }
+
+            .rating-feedback {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Media Query for small mobile devices */
+        @media (max-width: 480px) {
+            .container {
+                margin: 10px auto;
+                padding: 10px;
+            }
+
+            h1 {
+                font-size: 1.8rem;
+                margin-bottom: 15px;
+            }
+
+            h2 {
+                font-size: 1.3rem;
+            }
+
+            p, ul, ol {
+                font-size: 0.9rem;
+            }
+
+            .rating button {
+                font-size: 1.5rem;
+            }
+
+            .rating-feedback {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1><em>Holes</em> by Louis Sachar</h1>
+        <h1>Book Report</h1>
+        <h1>Holes by Louis Sachar</h1>
 
         <section class="report">
             <h2 onclick="toggleVisibility('title')">I. Title</h2>
@@ -173,13 +250,13 @@
             </ol>
 
             <h2 onclick="toggleVisibility('moral')">VIII. Moral Lesson</h2>
-            <p id="moral" class="hidden">The story teaches the importance of friendship, perseverance, and justice. It also shows that standing up for what is right, even in difficult situations, can lead to positive change.</p>
+            <p id="moral" class="hidden">The story teaches the importance of friendship, perseverance, and justice. It also shows that standing up for what is right, even in difficult situations, can lead to great outcomes.</p>
         </section>
 
         <!-- Rating System -->
         <section class="rating-section">
-            <h2>Rate this Book Report</h2>
-            <div class="rating" id="rating">
+            <h2>Rate This Book</h2>
+            <div class="rating">
                 <button onclick="rate(1)">★</button>
                 <button onclick="rate(2)">★</button>
                 <button onclick="rate(3)">★</button>
@@ -191,7 +268,14 @@
                 <button onclick="rate(9)">★</button>
                 <button onclick="rate(10)">★</button>
             </div>
+            <div class="rating-feedback" id="ratingFeedback">You rated this book 0/10 stars.</div>
         </section>
+
+        <!-- Audio Element with Autoplay -->
+        <audio id="backgroundMusic" autoplay loop>
+            <source src="music.mp3" type="audio/mpeg">
+            Your browser does not support the audio element.
+        </audio>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -216,7 +300,7 @@
             confirmButtonText: 'Okay'
         });
 
-        // Rating system function
+        // Rating system function with feedback display
         function rate(star) {
             var buttons = document.querySelectorAll('.rating button');
             buttons.forEach(function(button, index) {
@@ -227,6 +311,8 @@
                 }
             });
 
+            document.getElementById('ratingFeedback').textContent = 'You rated this book ' + star + '/10 stars.';
+
             Swal.fire({
                 title: 'Rating Submitted!',
                 text: 'You rated this book ' + star + ' out of 10 stars!',
@@ -235,6 +321,7 @@
             });
         }
 
+        // Print a message to the console
         function berwin(loveu) {
             console.log(loveu);
         };
