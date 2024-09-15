@@ -5,56 +5,63 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Book Report by Berwin James D Villareal</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
     <style>
-        /* Reset some default styles */
+        /* Reset */
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
         }
 
         body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: linear-gradient(120deg, #f6d365 0%, #fda085 100%);
+            font-size: 16px;
+            background: linear-gradient(120deg, #f093fb 0%, #f5576c 100%);
             color: #333;
-            line-height: 1.6;
+            line-height: 1.8;
+            overflow-x: hidden;
         }
 
+        /* Container Style */
         .container {
-            max-width: 900px;
-            margin: 40px auto;
-            padding: 20px;
-            background-color: #ffffff;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            border-radius: 12px;
-            overflow: hidden;
-            border-left: 8px solid #ff7e67;
+            max-width: 960px;
+            margin: 60px auto;
+            padding: 30px;
+            background: #fff;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            border-radius: 20px;
+            border-left: 8px solid #f5576c;
         }
 
+        /* Headings */
         h1 {
             text-align: center;
-            color: #ff7e67;
+            color: #f5576c;
             margin-bottom: 30px;
             font-size: 2.5rem;
-            font-weight: bold;
+            font-weight: 600;
         }
 
         h2 {
             color: #333;
-            margin-top: 20px;
             font-size: 1.8rem;
-            border-left: 4px solid #ff7e67;
+            margin-top: 30px;
             padding-left: 10px;
-            margin-bottom: 15px;
+            border-left: 4px solid #f5576c;
+            transition: color 0.3s ease;
             cursor: pointer;
+        }
+
+        h2:hover {
+            color: #f093fb;
         }
 
         h3 {
             color: #666;
+            font-size: 1.2rem;
             margin-top: 15px;
-            font-size: 1.3rem;
-            font-weight: normal;
-            margin-bottom: 10px;
+            font-weight: 400;
         }
 
         p, ul, ol {
@@ -65,33 +72,32 @@
         }
 
         ul, ol {
-            padding-left: 30px;
-            list-style: none;
+            padding-left: 40px;
         }
 
         ul li::before, ol li::before {
             content: "•";
-            color: #ff7e67;
+            color: #f5576c;
             font-weight: bold;
-            display: inline-block;
-            width: 1em;
-            margin-left: -1em;
+            margin-right: 8px;
         }
 
+        /* Sections */
         section {
             margin-bottom: 40px;
             background-color: #f9f9f9;
-            padding: 20px;
-            border-radius: 8px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
-            transition: transform 0.3s ease;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
         section:hover {
             transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
         }
 
-        /* Smooth transition for showing and hiding sections */
+        /* Toggleable Content */
         .hidden {
             max-height: 0;
             opacity: 0;
@@ -100,12 +106,12 @@
         }
 
         .visible {
-            max-height: 500px; /* Adjust this to suit the content size */
+            max-height: 500px;
             opacity: 1;
             transition: max-height 0.5s ease-in, opacity 0.5s ease-in;
         }
 
-        /* Enhanced Star rating styling */
+        /* Rating System */
         .rating {
             display: flex;
             justify-content: center;
@@ -118,34 +124,90 @@
             border: none;
             cursor: pointer;
             font-size: 2.5rem;
-            color: #ff7e67;
+            color: #f5576c;
             transition: color 0.3s ease, transform 0.3s ease;
             padding: 0 5px;
         }
 
         .rating button:hover,
         .rating button.active {
-            color: #f65050;
+            color: #f093fb;
             transform: scale(1.2);
         }
 
-        .rating button.active {
-            color: #ff3b3b;
-        }
-
-        .rating button:focus {
-            outline: none;
-        }
-
         .rating-feedback {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             text-align: center;
             margin-top: 10px;
-            color: #ff7e67;
+            color: #f5576c;
             font-weight: bold;
         }
 
-        /* Media Query for tablets and smaller screens */
+        /* Side Menu */
+        .side-menu {
+            height: 100%;
+            width: 250px;
+            position: fixed;
+            top: 0;
+            left: -250px;
+            background-color: #f5576c;
+            padding-top: 60px;
+            transition: 0.5s;
+            overflow-x: hidden;
+            z-index: 1;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+        }
+
+        .side-menu a {
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.2rem;
+            color: white;
+            display: block;
+            transition: background 0.3s ease;
+        }
+
+        .side-menu a:hover {
+            background-color: #f093fb;
+        }
+
+        .side-menu .close-btn {
+            position: absolute;
+            top: 20px;
+            right: 25px;
+            font-size: 2rem;
+            color: white;
+        }
+
+        .open-btn {
+            font-size: 2rem;
+            cursor: pointer;
+            background-color: #f5576c;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            border-radius: 50px;
+            z-index: 2;
+            transition: background-color 0.3s ease;
+        }
+
+        .open-btn:hover {
+            background-color: #f093fb;
+        }
+
+        .music-player {
+            margin: 20px;
+            text-align: center;
+        }
+
+        .music-player h3 {
+            color: white;
+        }
+
+        /* Media Query for tablets */
         @media (max-width: 768px) {
             .container {
                 margin: 20px auto;
@@ -154,7 +216,6 @@
 
             h1 {
                 font-size: 2rem;
-                margin-bottom: 20px;
             }
 
             h2 {
@@ -165,16 +226,12 @@
                 font-size: 1rem;
             }
 
-            .rating button {
-                font-size: 2rem;
-            }
-
-            .rating-feedback {
-                font-size: 1.3rem;
+            .side-menu {
+                width: 200px;
             }
         }
 
-        /* Media Query for small mobile devices */
+        /* Media Query for mobile */
         @media (max-width: 480px) {
             .container {
                 margin: 10px auto;
@@ -183,7 +240,6 @@
 
             h1 {
                 font-size: 1.8rem;
-                margin-bottom: 15px;
             }
 
             h2 {
@@ -194,40 +250,54 @@
                 font-size: 0.9rem;
             }
 
-            .rating button {
-                font-size: 1.5rem;
-            }
-
-            .rating-feedback {
-                font-size: 1rem;
+            .side-menu {
+                width: 180px;
             }
         }
     </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Book Report</h1>
-        <h1>Holes by Louis Sachar</h1>
+    <!-- Open Side Menu Button -->
+    <button class="open-btn" onclick="openMenu()">☰ Menu</button>
 
-        <section class="report">
+    <!-- Side Menu -->
+    <div id="sideMenu" class="side-menu">
+        <a href="javascript:void(0)" class="close-btn" onclick="closeMenu()">&times;</a>
+        <a href="#home">Home</a>
+        <a href="#report">Book Report</a>
+        <div class="music-player">
+            <h3>Music Player</h3>
+            <audio controls>
+                <source src="music.mp3" type="audio/mpeg">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </div>
+
+    <!-- Content Container -->
+    <div class="container" id="home">
+        <h1>Book Report: Holes by Louis Sachar</h1>
+
+        <section class="report" id="report">
             <h2 onclick="toggleVisibility('title')">I. Title</h2>
             <p id="title" class="hidden">Holes</p>
-            
+
             <h2 onclick="toggleVisibility('author')">II. Author</h2>
             <p id="author" class="hidden">Louis Sachar</p>
 
             <h2 onclick="toggleVisibility('genre')">III. Genre</h2>
-            <p id="genre" class="hidden">Adventure, Mystery, Young Adult</p>
+            <p id="genre" class="hidden">Adventure, Mystery, Coming-of-age</p>
 
-            <h2 onclick="toggleVisibility('publicationDate')">IV. Publication Date</h2>
-            <p id="publicationDate" class="hidden">August 20, 1998</p>            
+            <h2 onclick="toggleVisibility('summary')">IV. Summary</h2>
+            <p id="summary" class="hidden">Holes is about a boy named Stanley Yelnats who is sent to a juvenile correctional camp...</p>
 
-            <h2 onclick="toggleVisibility('setting')">V. Setting</h2>
-            <p id="setting" class="hidden"><strong>When:</strong> Modern times</p>
-            <p id="setting2" class="hidden"><strong>Where:</strong> Camp Green Lake, Texas</p>
+            <h2 onclick="toggleVisibility('settings')">V. Setting</h2>
+            <ul id="settings" class="hidden">
+                <li>Camp Green Lake</li>
+                <li>The Texas Desert</li>
+            </ul>
 
             <h2 onclick="toggleVisibility('characters')">VI. Characters</h2>
-            
             <ul id="characters" class="hidden">
                 <h3>Major Characters:</h3>
                 <li>Stanley Yelnats</li>
@@ -270,12 +340,6 @@
             </div>
             <div class="rating-feedback" id="ratingFeedback">You rated this book report 0/10 stars.</div>
         </section>
-
-        <!-- Audio Element with Autoplay -->
-        <audio id="backgroundMusic" autoplay loop>
-            <source src="music.mp3" type="audio/mpeg">
-            Your browser does not support the audio element.
-        </audio>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
@@ -321,10 +385,19 @@
             });
         }
 
+        // Side Menu open/close functions
+        function openMenu() {
+            document.getElementById("sideMenu").style.left = "0";
+        }
+
+        function closeMenu() {
+            document.getElementById("sideMenu").style.left = "-250px";
+        }
+
         // Print a message to the console
         function berwin(loveu) {
             console.log(loveu);
-        };
+        }
         berwin('This book report was done by Berwin James D Villareal from 10-Collantes');
     </script>
 </body>
