@@ -28,8 +28,8 @@
             max-width: 960px;
             margin: 60px auto;
             padding: 30px;
-            background: #fff;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background: white;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
             border-radius: 20px;
             border-left: 8px solid #f5576c;
         }
@@ -39,13 +39,13 @@
             text-align: center;
             color: #f5576c;
             margin-bottom: 30px;
-            font-size: 2.5rem;
+            font-size: 2.8rem;
             font-weight: 600;
         }
 
         h2 {
-            color: #333;
-            font-size: 1.8rem;
+            color: #f5576c;
+            font-size: 2rem;
             margin-top: 30px;
             padding-left: 10px;
             border-left: 4px solid #f5576c;
@@ -58,8 +58,8 @@
         }
 
         h3 {
-            color: #666;
-            font-size: 1.2rem;
+            color: #555;
+            font-size: 1.5rem;
             margin-top: 15px;
             font-weight: 400;
         }
@@ -140,7 +140,7 @@
             text-align: center;
             margin-top: 10px;
             color: #f5576c;
-            font-weight: bold;
+ font-weight: bold;
         }
 
         /* Side Menu */
@@ -159,12 +159,13 @@
         }
 
         .side-menu a {
-            padding: 10px 20px;
+            padding: 15px 20px;
             text-decoration: none;
             font-size: 1.2rem;
             color: white;
             display: block;
             transition: background 0.3s ease;
+            border-radius: 5px;
         }
 
         .side-menu a:hover {
@@ -215,11 +216,11 @@
             }
 
             h1 {
-                font-size: 2rem;
+                font-size: 2.5rem;
             }
 
             h2 {
-                font-size: 1.5rem;
+                font-size: 1.8rem;
             }
 
             p, ul, ol {
@@ -239,11 +240,11 @@
             }
 
             h1 {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
 
             h2 {
-                font-size: 1.3rem;
+                font-size: 1.5rem;
             }
 
             p, ul, ol {
@@ -258,7 +259,7 @@
 </head>
 <body>
     <!-- Open Side Menu Button -->
-    <button class="open-btn" onclick="openMenu()">☰ Menu</button>
+    <button class="open-btn" onclick="openMenu()">☰</button>
 
     <!-- Side Menu -->
     <div id="sideMenu" class="side-menu">
@@ -267,7 +268,7 @@
         <a href="#report">Book Report</a>
         <div class="music-player">
             <h3>Music Player</h3>
-            <audio controls>
+            <audio controls autoplay loop>
                 <source src="music.mp3" type="audio/mpeg">
                 Your browser does not support the audio element.
             </audio>
@@ -292,7 +293,7 @@
             <p id="summary" class="hidden">Holes is about a boy named Stanley Yelnats who is sent to a juvenile correctional camp...</p>
 
             <h2 onclick="toggleVisibility('settings')">V. Setting</h2>
-            <ul id="settings" class="hidden">
+            <ul id="settings" class="hidden "> 
                 <li>Camp Green Lake</li>
                 <li>The Texas Desert</li>
             </ul>
